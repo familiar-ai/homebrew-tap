@@ -10,12 +10,12 @@ class Guv < Formula
   on_macos do
     on_arm do
       url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.1.0/guv_Darwin_arm64.tar.gz"
-      sha256 "0cbfe84b7d26cba64dc0745ca30020a05fa7ccd2701ad7bb7f71125fd0f54ace"
+      sha256 "0c7e4c919829c64863b722abce559a42a4e5c713e8b2720b798b82f2bfb85313"
     end
 
     on_intel do
       url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.1.0/guv_Darwin_x86_64.tar.gz"
-      sha256 "5433d194192afb35f4b76cba3e3a6891934a765f9cac6e5f8f31151ea0088488"
+      sha256 "101995ad25e88124a5d2ce1541ea13efbd0ad16dc1c41bcc81551e668fe29717"
     end
   end
 
