@@ -1,0 +1,25 @@
+name: Tap Check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check formula if present
+        run: |
+          set -euo pipefail
+          if [[ ! -f Formula/guv.rb ]]; then
+            echo "Formula/guv.rb not published yet"
+            exit 0
+          fi
+          brew audit --formula Formula/guv.rb || true
+          brew install --formula Formula/guv.rb
+          guv 2>&1 | grep -q "usage:"
