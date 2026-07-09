@@ -22,7 +22,8 @@ class Guv < Formula
   depends_on "qrencode"
 
   def install
-    bin.install "bin/guv" => "guv"
+    guv_binary = File.exist?("bin/guv") ? "bin/guv" : "guv"
+    bin.install guv_binary => "guv"
     bin.install_symlink bin/"guv" => "guvd"
     pkgshare.install "share/guv" if File.directory?("share/guv")
   end
