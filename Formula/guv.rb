@@ -4,30 +4,30 @@
 class Guv < Formula
   desc "Guv daemon + CLI: durable Job/Effect engine for the app"
   homepage "https://github.com/familiar-ai/homebrew-tap"
-  version "0.2.6"
+  version "0.2.7"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.6/guv_Darwin_arm64.tar.gz"
-      sha256 "637c070de1f922548e856cb35a546c799d36ae23928273ad9cc953f821b1eae0"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.7/guv_Darwin_arm64.tar.gz"
+      sha256 "140b2ea64bb2369466382e1f5fda41303f84924a25998262d5a2c3d7d6ef7c72"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.6/guv_Darwin_x86_64.tar.gz"
-      sha256 "fc82fdc2ed8119951e517e97f93c5192384796ddcbd6a5ef4768755010b22fbe"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.7/guv_Darwin_x86_64.tar.gz"
+      sha256 "6275493199332ea5a5190d54452c6d360e4517f9ed18cd0dc084d1b6bc346296"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.6/guv_Linux_arm64.tar.gz"
-      sha256 "fafbff6ce26a2b57d23b571fe1a12efa4219d627bf65bf828f651810f9acad87"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.7/guv_Linux_arm64.tar.gz"
+      sha256 "fa4375ffa435ddec9becf9ec3b4757b58ef9883598332b6ee40c5593c6c41236"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.6/guv_Linux_x86_64.tar.gz"
-      sha256 "42f84dc06d745b014b0c2d64d6710c09a06e6593265853606d60b0fe1b47f0c3"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.7/guv_Linux_x86_64.tar.gz"
+      sha256 "57670b9aa4ae87f533a92c9573910421fbf6191913015a082a4b779ea17ca3bd"
     end
   end
 
@@ -36,6 +36,7 @@ class Guv < Formula
   def install
     guv_binary = File.exist?("bin/guv") ? "bin/guv" : "guv"
     bin.install guv_binary => "guv"
+    bin.install "bin/guv-handler-claude"
     bin.install_symlink bin/"guv" => "guvd"
     pkgshare.install "share/guv/sdk" if File.directory?("share/guv/sdk")
   end
@@ -59,12 +60,14 @@ class Guv < Formula
         guv up          # prompts for your invite code, shows the QR
 
       Then: guv status · guv logs
-      The handler needs the `pi` CLI installed and logged in.
+      Default Handler needs logged-in `pi`.
+      Optional Claude Handler needs logged-in `claude` and foreground `guv-handler-claude start`.
     EOS
   end
 
   test do
     assert_match "usage:", shell_output("#{bin}/guv 2>&1", 2)
+    assert_predicate bin/"guv-handler-claude", :executable?
     assert_predicate pkgshare/"sdk/index.ts", :exist?
     assert_predicate pkgshare/"sdk/README.md", :exist?
   end
