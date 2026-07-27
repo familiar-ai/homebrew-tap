@@ -4,30 +4,30 @@
 class Guv < Formula
   desc "Guv daemon + CLI: durable Job/Effect engine for the app"
   homepage "https://github.com/familiar-ai/homebrew-tap"
-  version "0.2.9"
+  version "0.2.12"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.9/guv_Darwin_arm64.tar.gz"
-      sha256 "0d9a316a5776ea1ed8f13a2ce9dae74cd60a869390df85972b32ff7f506359d7"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.12/guv_Darwin_arm64.tar.gz"
+      sha256 "a34cd73af4d9633e7599abfe5c450baf1e946477a96574a7891dacab2d6834ce"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.9/guv_Darwin_x86_64.tar.gz"
-      sha256 "94a266d9c09a45ad63a2783139bf4e50da5f669390f2c073766605ea1d164184"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.12/guv_Darwin_x86_64.tar.gz"
+      sha256 "db916c2f04595947463fe4a51fe9a82f08814f000c0c4a57af039ab7f320eb63"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.9/guv_Linux_arm64.tar.gz"
-      sha256 "4b31a2b331a1f39fc839d46893f1ef008bcc506021c7f7c0d1d2c0ab6a4067c9"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.12/guv_Linux_arm64.tar.gz"
+      sha256 "61d04e27cf65bd3004d96c831ad21e071109f8a79c10703130b18e00e6bdaa4e"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.9/guv_Linux_x86_64.tar.gz"
-      sha256 "c6648682b0fc17f8a43caca4c1dd535d9095c74a7493d65d1df8df9b2c3a4dc4"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.12/guv_Linux_x86_64.tar.gz"
+      sha256 "0356f47365111397054e9dc96a2f880750e498f340d302601a55f3a1f6a6f275"
     end
   end
 
@@ -61,7 +61,8 @@ class Guv < Formula
 
       Then: guv status · guv logs
       Default Handler needs logged-in `pi`.
-      Optional Claude Handler needs logged-in `claude` and foreground `guv-handler-claude start`.
+      Optional Claude Handler needs logged-in `claude`; Guv starts it after Handler selection.
+      Foreground demo: stop the service, then run `guv run --show-handler`.
     EOS
   end
 
