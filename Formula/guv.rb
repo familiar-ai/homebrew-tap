@@ -4,30 +4,30 @@
 class Guv < Formula
   desc "Guv daemon + CLI: durable Job/Effect engine for the app"
   homepage "https://github.com/familiar-ai/homebrew-tap"
-  version "0.2.14"
+  version "0.2.15"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.14/guv_Darwin_arm64.tar.gz"
-      sha256 "ee2001cfeddf7a3843b6edfd3ec0171d131d80f7c1a7e9c95082149e759264e8"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.15/guv_Darwin_arm64.tar.gz"
+      sha256 "825f4455cba0f8660172141db6eeae4d6f812a5bbecd1547d35705765ead82fd"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.14/guv_Darwin_x86_64.tar.gz"
-      sha256 "d499f81690bfe50d8a94409d3c239488e58f839b211245f449752bae6a973b7f"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.15/guv_Darwin_x86_64.tar.gz"
+      sha256 "c96a8c9700b4c5adf8197273c6268c65214f0c396f6632a09f931da5666f0161"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.14/guv_Linux_arm64.tar.gz"
-      sha256 "4e4bea9640b025873c744b9ca4417b23dba0bda1e3260222a6eddf1668310cfb"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.15/guv_Linux_arm64.tar.gz"
+      sha256 "4f51fef71f4ea345ff921f07ba762dd02208565b87f9c3b8b97591b178a0ddcd"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.14/guv_Linux_x86_64.tar.gz"
-      sha256 "ce95f6a2b85b4d317ab63f46719cf6b960417751551421d4fc3ed1bd8cca917f"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.2.15/guv_Linux_x86_64.tar.gz"
+      sha256 "7088affd8507fe8b1cf3b232d1113af0b2546f4599bbb07e6b0a88605d489c1b"
     end
   end
 
@@ -57,7 +57,7 @@ class Guv < Formula
     <<~EOS
       Pair this machine and your phone:
         brew services start guv
-        guv up          # prompts for your invite code, shows the QR
+        guv up          # prompts for your Setup Token, shows the QR
 
       Then: guv status · guv logs
       Default Handler needs logged-in `pi`.
