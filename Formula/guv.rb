@@ -4,30 +4,30 @@
 class Guv < Formula
   desc "Guv daemon + CLI: durable Job/Effect engine for the app"
   homepage "https://github.com/familiar-ai/homebrew-tap"
-  version "0.3.1"
+  version "0.3.4"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.1/guv_Darwin_arm64.tar.gz"
-      sha256 "73fff1a27466bbcb1faf12541883f361bea790721ba844727182a2473ec1bfec"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.4/guv_Darwin_arm64.tar.gz"
+      sha256 "09e77a223e3e6fd4715369c3b77ac476e403a796e765fbdf076d7a3980cd1831"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.1/guv_Darwin_x86_64.tar.gz"
-      sha256 "214e00fd3550354f3fb0f8df19a40d97e4425f1f5a26d673d729d699afd97ee2"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.4/guv_Darwin_x86_64.tar.gz"
+      sha256 "5d8991d31966d885b07841b4c13f00b5f0e12fad6355dc927cfec165ee9ae7f8"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.1/guv_Linux_arm64.tar.gz"
-      sha256 "715f48eaad9ea8592a520be60d107f65d54109d4a4026a5fdab7ee9ac5717192"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.4/guv_Linux_arm64.tar.gz"
+      sha256 "f8e4bf3196cc697f0f73f75c6307ea20354027f45d8e1ffe9d4252a3cbe311e9"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.1/guv_Linux_x86_64.tar.gz"
-      sha256 "9650278ec1a62da8e0f9db0145ce71e5ea7e93dd1eaf9363b26da7e0242b2745"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.4/guv_Linux_x86_64.tar.gz"
+      sha256 "48814258e93eaa81e5e0cfdb220af6ee83cb3f8c52a693ad1663728afd130b34"
     end
   end
 
