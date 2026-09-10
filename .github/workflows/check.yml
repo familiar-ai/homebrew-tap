@@ -11,6 +11,9 @@ permissions:
 jobs:
   check:
     runs-on: macos-latest
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+      HOMEBREW_NO_ANALYTICS: "1"
     steps:
       - uses: actions/checkout@v4
       - name: Check formula if present
@@ -20,6 +23,8 @@ jobs:
             echo "Formula/guv.rb not published yet"
             exit 0
           fi
-          brew audit --formula Formula/guv.rb || true
-          brew install --formula Formula/guv.rb
-          guv 2>&1 | grep -q "usage:"
+          brew tap familiar-ai/tap
+          # Test this checkout's formula, including unmerged PR changes.
+          cp Formula/guv.rb "$(brew --repository familiar-ai/tap)/Formula/guv.rb"
+          brew install familiar-ai/tap/guv
+          brew test familiar-ai/tap/guv
