@@ -4,30 +4,30 @@
 class Guv < Formula
   desc "Guv daemon + CLI: durable Job/Effect engine for the app"
   homepage "https://github.com/familiar-ai/homebrew-tap"
-  version "0.3.23"
+  version "0.3.25"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.23/guv_Darwin_arm64.tar.gz"
-      sha256 "08f8a31e0403c6df0c9a9dad0b30bfdc3fa59bdc5a137d97add46d78cdcdc047"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.25/guv_Darwin_arm64.tar.gz"
+      sha256 "42c61820bf6553a15538f5a14f419677e7bd823d40a1b08b129f3074b663bf6e"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.23/guv_Darwin_x86_64.tar.gz"
-      sha256 "0ce118d42ed6907339162bdc4e3f62750423f285d8b35a5f5265910c1d919014"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.25/guv_Darwin_x86_64.tar.gz"
+      sha256 "5a66484f8aeee6a6a4972780fbf615ace0cbde544c776983d18e86eee4ee5436"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.23/guv_Linux_arm64.tar.gz"
-      sha256 "0f4412e03e1601222cfd68b8d4908ca9d160aabdbe15e6f5e7f6e1048d760ad6"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.25/guv_Linux_arm64.tar.gz"
+      sha256 "ce96e4e251e3a014cc99e8566d45414c753784ec0d8965fd6fc6a773d2b3f083"
     end
 
     on_intel do
-      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.23/guv_Linux_x86_64.tar.gz"
-      sha256 "c295cc3e09198e33fe5c46c8a88921716c405f18f61442f457c1afd90c1c9a5b"
+      url "https://github.com/familiar-ai/homebrew-tap/releases/download/guv-v0.3.25/guv_Linux_x86_64.tar.gz"
+      sha256 "885ba019700138f1c06ed81f10778dcacf473505f1256654b09c81ad54fb7041"
     end
   end
 
@@ -68,6 +68,8 @@ class Guv < Formula
     assert_predicate bin/"guv-handler-claude", :executable?
     assert_predicate pkgshare/"sdk/index.ts", :exist?
     assert_predicate pkgshare/"sdk/README.md", :exist?
+    assert_predicate pkgshare/"sdk/node_modules/zod/package.json", :exist?
+    refute_match(/"dependencies"/, (pkgshare/"sdk/package.json").read)
     assert_predicate pkgshare/"handlers/pi/setup.json", :exist?
     assert_predicate pkgshare/"handlers/claude/setup.json", :exist?
     assert_predicate pkgshare/"skills/guv-support/SKILL.md", :exist?
