@@ -69,7 +69,7 @@ class Guv < Formula
     assert_predicate pkgshare/"sdk/index.ts", :exist?
     assert_predicate pkgshare/"sdk/README.md", :exist?
     assert_predicate pkgshare/"sdk/node_modules/zod/package.json", :exist?
-    refute_match(/"dependencies"/, (pkgshare/"sdk/package.json").read)
+    assert_equal({ "zod" => "file:./node_modules/zod" }, JSON.parse((pkgshare/"sdk/package.json").read)["dependencies"])
     assert_predicate pkgshare/"handlers/pi/setup.json", :exist?
     assert_predicate pkgshare/"handlers/claude/setup.json", :exist?
     assert_predicate pkgshare/"skills/guv-support/SKILL.md", :exist?
